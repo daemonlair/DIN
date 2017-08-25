@@ -1,0 +1,18 @@
+
+steps for testing:
+
+
+
+1. start testrpc
+2. run : `truffle compile --all && truffle migrate`
+3. run : `truffle console`
+4. In truffle console, type these instructions :
+
+a. truffle(development)> DINRegistry.deployed().then(function(instance){reg=instance})
+b. truffle(development)> var event = reg.NewRegistration({owner: web3.eth.accounts[0]})
+c. truffle(development)> var callback = function(error, result) {if (!error) {console.log(result)} else {console.log(error)}}
+d. truffle(development)> event.watch(callback)
+e. truffle(development)> reg.registerNewDIN(callback)
+f. truffle(development)> reg.owner(10000001, callback)
+
+The problem is in the step E & F. If I dont send the callback into the functions, they work. If I do, they dont. Several online places have such callbacks inserted into the code without them having in the function declaration in contract. These callbacks send back the error msg, which I like the idea of. Do you know how I can make this work?

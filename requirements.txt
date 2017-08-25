@@ -1,0 +1,60 @@
+
+
+1. create dataset
+2. delete dataset
+3. buy dataset
+4. sell dataset
+
+1. create notebook
+2. delete notebook
+3. buy notebook
+4. sell notebook
+
+1. create api subscription
+2. delete api subscription
+3. buy api subscription
+4. sell api subscription
+
+1. find a product
+2. receive info about a product
+
+
+
+contracts-info :
+
+
+
+BuyHandler: 
+	Interface for handling an order placed by a customer.
+
+DINRegistry:
+	Registry for DIN key. It stores all DIN numbers.
+	struct Record {
+        address owner; // Address that owns the DIN.
+        address market; // Address of the market associated with the DIN.
+    }
+
+InventoryResolver:
+	Interface for checking if product is available in the market.
+
+Market:
+	Interface Definition of a market.
+
+OrderTracker:
+	Takes in an order by the customer and tries to complete the order using resolvers.
+
+PriceResolver:
+	Interface for calculating total price of a product.
+
+Product:
+	Interface for a product.
+
+PublicMarket:
+	Definition of a market.
+
+
+Needed:
+
+PublicProductResolver:
+	Stores product information.
+
