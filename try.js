@@ -84,9 +84,13 @@ function getNewDIN() {
 		// web3.personal.unlockAccount(this.account,"itsthenewone");
         web3.eth.defaultAccount = this.account;
         // console.log(web3.eth.defaultAccount);
-        DINRegistryInstance.registerNewDIN({from: this.account});
-        console.log(logger.args.DIN);
-        return 10001;
+        return DINRegistryInstance.registerNewDIN({from: this.account})
+			.then(function () {
+				console.log(logger.args.DIN.toString());
+				event.stopWatching();
+				return logger.args.DIN.toString();
+			})
+        // return logger.args.DIN.toString();
       })
       .then((result) => {
     	return result;
