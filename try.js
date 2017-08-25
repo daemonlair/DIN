@@ -14,6 +14,7 @@ var web3Provider = null;
 var balance = 0;
 var contracts = {};
 var account = null;
+var logger = null;
 var callback = function(error, result) {
   if (!error) {
   	// console.log(result)
@@ -84,7 +85,7 @@ function getNewDIN() {
         web3.eth.defaultAccount = this.account;
         // console.log(web3.eth.defaultAccount);
         DINRegistryInstance.registerNewDIN({from: this.account});
-        console.log(logger.args);
+        console.log(logger.args.DIN);
         return 10001;
       })
       .then((result) => {
