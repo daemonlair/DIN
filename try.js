@@ -80,22 +80,6 @@ function getNewDIN() {
         var event = DINRegistryInstance.NewRegistration({owner: this.account});
         event.watch(callback);
 
-        // const filter = web3.eth.filter({
-        //   fromBlock: 0,
-        //   toBlock: 'latest',
-        //   address: '0xdcdf10e828efb0db2ad9e2cc9b78d14a135a5ec8',
-        //   topics: [web3.sha3('NewRegistration(uint256, address)')]
-        // });
-		//
-        // filter.watch((error, result) => {
-        //   if(!error) {
-        //     console.log(result);
-        //   } else {
-        //     console.log(error);
-        //   }
-        // })
-        // console.log(event);
-
 		// web3.personal.unlockAccount(this.account,"itsthenewone");
         web3.eth.defaultAccount = this.account;
         // console.log(web3.eth.defaultAccount);
